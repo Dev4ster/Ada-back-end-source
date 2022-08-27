@@ -1,17 +1,18 @@
 import { Router } from 'express'
-import { EnvAuthentication } from '../../data/usecases/authentication/env-authentication'
+import { DbGetCards } from '../../data/usecases/cards/db-get-cards'
 import { JwtAdapter } from '../../infra/cryptography/jwt-adapter'
-import { LoginController } from '../../presentation/controllers/login/login'
+import { GetCardsSqliteRepository } from '../../infra/db/sqlite/card/get-cards-sqlite-repository'
+import { GetCardsController } from '../../presentation/controllers/card/get-cards'
 import { AuthMiddleware } from '../../presentation/middlewares/auth-middleware'
 import { Controller } from '../../presentation/protocols'
 import { Middleware } from '../../presentation/protocols/middleware'
 import { adaptMiddleware } from '../adapters/express-middleware-adapter'
 import { adaptRoute } from '../adapters/express-route-adapter'
 
-const makeLoginController = (): Controller => {
-  const jwt = new JwtAdapter('teste')
-  const envAuth = new EnvAuthentication(jwt)
-  return new LoginController(envAuth)
+const makeGetCards = (): Controller => {
+  const getCardsSqliteRepository = new GetCardsSqliteRepository()
+  const dbGetCards = new DbGetCards(getCardsSqliteRepository)
+  return new GetCardsController(dbGetCards)
 }
 
 const makeAuthMiddleware = (): Middleware => {
@@ -22,5 +23,5 @@ const makeAuthMiddleware = (): Middleware => {
 const adaptMiddlewareAuth = adaptMiddleware(makeAuthMiddleware())
 
 export default (router: Router): void => {
-  router.get('/card', adaptMiddlewareAuth, adaptRoute(makeLoginController()))
+  router.get('/card', adaptMiddlewareAuth, adaptRoute(makeGetCards()))
 }

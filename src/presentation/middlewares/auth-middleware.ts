@@ -10,7 +10,6 @@ export class AuthMiddleware implements Middleware {
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       const header = httpRequest?.headers?.['authorization']
-      console.log('httpRequest', httpRequest)
       if (header) {
         const [, token] = header.split(' ')
         if (token) {
