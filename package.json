@@ -1,0 +1,10 @@
+{
+  "name": "desafio-back-end",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Victor Menezes <victormenezes35@hotmail.comm>",
+  "license": "MIT",
+  "devDependencies": {
+    "git-commit-msg-linter": "^4.1.3"
+  }
+}
