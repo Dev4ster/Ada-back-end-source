@@ -1,3 +1,4 @@
+import { makeLogControllerDecorator } from './../factories/decorators/log-controller-decorator'
 import { Router } from 'express'
 
 import { adaptRoute } from '@main/adapters/express-route-adapter'
@@ -12,6 +13,6 @@ export default (router: Router): void => {
   router.put(
     '/card/:id',
     adaptMiddlewareAuth,
-    adaptRoute(makeUpdateController())
+    adaptRoute(makeLogControllerDecorator(makeUpdateController(), 'Alterar'))
   )
 }
