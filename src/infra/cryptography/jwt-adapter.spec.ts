@@ -18,7 +18,8 @@ describe('JWT Adapter', () => {
       {
         id: 'any_id'
       },
-      'secret'
+      'secret',
+      { expiresIn: '1d' }
     )
   })
 

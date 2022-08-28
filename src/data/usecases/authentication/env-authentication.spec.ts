@@ -73,6 +73,6 @@ describe('EnvAuthentication usecase', () => {
     const { sut, encrypterStub } = makeSut()
     const encrypt = jest.spyOn(encrypterStub, 'encrypt')
     await sut.auth(makeFakeCorrectAuth())
-    expect(encrypt).toBeCalledWith('any_login')
+    expect(encrypt).toBeCalledWith({ id: 'any_login' })
   })
 })

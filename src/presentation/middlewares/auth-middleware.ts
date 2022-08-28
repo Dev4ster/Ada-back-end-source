@@ -5,6 +5,7 @@ import {
   ok,
   serverError
 } from '@presentation/helpers/http/http-helper'
+import { JsonWebTokenError } from 'jsonwebtoken'
 import {
   Middleware,
   HttpResponse,
@@ -28,7 +29,10 @@ export class AuthMiddleware implements Middleware {
       }
 
       return forbidden(new AccessDeniedError())
-    } catch (error) {
+    } catch (error: unknown) {
+      if (error instanceof JsonWebTokenError) {
+        return forbidden(new AccessDeniedError())
+      }
       return serverError(error as Error)
     }
   }

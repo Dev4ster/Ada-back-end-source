@@ -7,6 +7,7 @@ services:
     environment:
       LOGIN: ${LOGIN}
       PASSWORD: ${PASSWORD}
+      TOKEN_SECRET: ${TOKEN_SECRET}
     working_dir: /usr/src/card-api
     command: bash -c "yarn install --only=prod && yarn start:debug"
     volumes: 

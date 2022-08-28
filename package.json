@@ -9,7 +9,7 @@
     "build": "rimraf dist && yarn babel src --extensions \".js,.ts\" --out-dir dist --copy-files --ignore \"**/*.spec.ts\" --ignore \"**/*.test.ts\" --no-copy-ignored",
     "start": "node dist/main/server.js",
     "start:debug": "nodemon --watch ./dist --inspect=0.0.0.0:9222 --nolazy ./dist/main/server.js",
-    "dev": "yarn dev:container",
+    "dev": "yarn nodemon -e ts,js --exec ts-node -r tsconfig-paths/register ./src/main/server.ts",
     "dev:stop": "yarn dev:container:stop",
     "dev:container": "yarn build && docker-compose --env-file .env up -d",
     "dev:container:stop": "docker-compose down",
@@ -51,7 +51,9 @@
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "ts-jest": "^28.0.8",
+    "ts-node": "^10.9.1",
     "tsc-alias": "^1.7.0",
+    "tsconfig-paths": "^4.1.0",
     "ttypescript": "^1.5.13",
     "typescript": "^4.8.2"
   },
