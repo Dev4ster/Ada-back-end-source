@@ -1,6 +1,4 @@
-import dotenv from 'dotenv'
 import { setupDB } from './config/db'
-dotenv.config()
 import env from './config/env'
 
 const runApp = async () => {

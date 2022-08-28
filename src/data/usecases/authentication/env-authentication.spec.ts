@@ -32,12 +32,21 @@ const makeFakeCorrectAuth = () => ({
   password: 'any_password'
 })
 
+jest.mock('../../../main/config/env', () => ({
+  login: 'any_login',
+  password: 'any_password'
+}))
+
 const makeFakeInCorrectAuth = () => ({
   login: 'any_login_incorrect',
   password: 'any_password_incorrect'
 })
 
 describe('EnvAuthentication usecase', () => {
+  beforeAll(() => {
+    process.env.PASSWORD = 'any_password'
+    process.env.LOGIN = 'any_login'
+  })
   it('should throws if login and password is incorrect', async () => {
     const { sut } = makeSut()
     const tokenHandler = await sut.auth(makeFakeInCorrectAuth())
