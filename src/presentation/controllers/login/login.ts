@@ -1,5 +1,10 @@
-import { MissingParamError, UnauthorizedError } from 'presentation/errors'
-import { badRequest, ok, serverError, unauthorized } from 'presentation/helpers'
+import { MissingParamError, UnauthorizedError } from '@presentation/errors'
+import {
+  badRequest,
+  ok,
+  serverError,
+  unauthorized
+} from '@presentation/helpers'
 import {
   Authentication,
   HttpRequest,

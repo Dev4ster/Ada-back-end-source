@@ -1,4 +1,4 @@
-import { db } from 'infra/db/sqlite/helpers/sqlite-helper'
+import { db } from '@infra/db/sqlite/helpers/sqlite-helper'
 import { v4 as uuidv4 } from 'uuid'
 
 export const setupDB = () => {

@@ -1,27 +1,11 @@
 import { Router } from 'express'
-import { DbGetCards } from '../../data/usecases/cards/db-get-cards'
-import { JwtAdapter } from '../../infra/cryptography/jwt-adapter'
-import { GetCardsSqliteRepository } from '../../infra/db/sqlite/card/get-cards-sqlite-repository'
-import { GetCardsController } from '../../presentation/controllers/card/get-cards'
-import { AuthMiddleware } from '../../presentation/middlewares/auth-middleware'
-import { Controller } from '../../presentation/protocols'
-import { Middleware } from '../../presentation/protocols/middleware'
-import { adaptMiddleware } from '../adapters/express-middleware-adapter'
-import { adaptRoute } from '../adapters/express-route-adapter'
 
-const makeGetCards = (): Controller => {
-  const getCardsSqliteRepository = new GetCardsSqliteRepository()
-  const dbGetCards = new DbGetCards(getCardsSqliteRepository)
-  return new GetCardsController(dbGetCards)
-}
-
-const makeAuthMiddleware = (): Middleware => {
-  const jwt = new JwtAdapter('teste')
-  return new AuthMiddleware(jwt)
-}
-
-const adaptMiddlewareAuth = adaptMiddleware(makeAuthMiddleware())
+import { adaptRoute } from '@main/adapters/express-route-adapter'
+import { makeAddCardController } from '@main/factories/controllers/cards/add-card-factory'
+import { makeGetCardsController } from '@main/factories/controllers/cards/get-cards-factory'
+import { adaptMiddlewareAuth } from '@main/factories/middlewares/auth-middleware-factory'
 
 export default (router: Router): void => {
-  router.get('/card', adaptMiddlewareAuth, adaptRoute(makeGetCards()))
+  router.get('/card', adaptMiddlewareAuth, adaptRoute(makeGetCardsController()))
+  router.post('/card', adaptMiddlewareAuth, adaptRoute(makeAddCardController()))
 }

@@ -1,12 +1,12 @@
 import { AuthMiddleware } from './auth-middleware'
 import { HttpRequest } from './auth-middleware-protocols'
-import { Decrypter } from 'data/protocols/cryptography/dencrypter'
-import { AccessDeniedError } from 'presentation/errors'
+import { Decrypter } from '@data/protocols/cryptography/dencrypter'
+import { AccessDeniedError } from '@presentation/errors'
 import {
   forbidden,
   ok,
   serverError
-} from 'presentation/helpers/http/http-helper'
+} from '@presentation/helpers/http/http-helper'
 
 const makeHttpRequest = (): HttpRequest => ({
   headers: {

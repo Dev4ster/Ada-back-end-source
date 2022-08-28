@@ -1,10 +1,10 @@
-import { Decrypter } from 'data/protocols/cryptography/dencrypter'
-import { AccessDeniedError } from 'presentation/errors/access-denied-error'
+import { Decrypter } from '@data/protocols/cryptography/dencrypter'
+import { AccessDeniedError } from '@presentation/errors/access-denied-error'
 import {
   forbidden,
   ok,
   serverError
-} from 'presentation/helpers/http/http-helper'
+} from '@presentation/helpers/http/http-helper'
 import {
   Middleware,
   HttpResponse,
