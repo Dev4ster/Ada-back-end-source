@@ -2,6 +2,6 @@ import { Card } from '@domain/models/card'
 
 export type CardCreateParams = Omit<Card, 'id'>
 
-export interface CreateCardRespository {
+export interface CreateCardRepository {
   add: (card: CardCreateParams) => Promise<Card>
 }

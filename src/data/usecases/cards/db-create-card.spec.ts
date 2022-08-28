@@ -1,10 +1,10 @@
-import { CreateCardRespository } from '@data/protocols/db/card/create-card-repository'
+import { CreateCardRepository } from '@data/protocols/db/card/create-card-repository'
 import { CreateCard } from '@domain/usecases/create-card'
 import { DBCreateCard } from './db-create-card'
 
 type SutTypes = {
   sut: CreateCard
-  createCardRepositoryStub: CreateCardRespository
+  createCardRepositoryStub: CreateCardRepository
 }
 
 const fakeCardToAdd = {
@@ -14,7 +14,7 @@ const fakeCardToAdd = {
 }
 
 const makeCreateCardRepositoryStub = () => {
-  class CreateCardRepositoryStub implements CreateCardRespository {
+  class CreateCardRepositoryStub implements CreateCardRepository {
     add() {
       return Promise.resolve({
         id: 'any_id',

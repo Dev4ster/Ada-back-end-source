@@ -1,4 +1,4 @@
-import { notFound, ok } from './../../../helpers/http/http-helper'
+import { notFound, ok } from '@presentation/helpers/http/http-helper'
 import { DeleteCardController } from '.'
 import { badRequest, serverError } from '@presentation/helpers'
 import { InvalidParamError, MissingParamError } from '@presentation/errors'

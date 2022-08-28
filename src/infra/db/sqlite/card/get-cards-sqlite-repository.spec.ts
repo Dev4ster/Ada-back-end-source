@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Card } from './../../../../domain/models/card'
+import { Card } from '@domain/models/card'
 import { GetCardsSqliteRepository } from './get-cards-sqlite-repository'
 
 const makeSut = () => {

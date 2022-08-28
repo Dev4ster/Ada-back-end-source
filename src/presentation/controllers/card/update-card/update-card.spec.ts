@@ -1,5 +1,5 @@
-import { notFound, ok } from './../../../helpers/http/http-helper'
-import { UpdateCard } from './../../../../domain/usecases/update-card'
+import { notFound, ok } from '@presentation/helpers/http/http-helper'
+import { UpdateCard } from '@domain/usecases/update-card'
 import { Card } from '@domain/models/card'
 import { Controller } from './update-cards-protocols'
 import { UpdateCardController } from '.'

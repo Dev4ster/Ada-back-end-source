@@ -1,4 +1,4 @@
-import { makeLogControllerDecorator } from './../factories/decorators/log-controller-decorator'
+import { makeLogControllerDecorator } from '@main/factories/decorators/log-controller-decorator'
 import { Router } from 'express'
 
 import { adaptRoute } from '@main/adapters/express-route-adapter'

@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import jwt from 'jsonwebtoken'
-import { Decrypter } from '../../data/protocols/cryptography/dencrypter'
-import { Encrypter } from '../../data/protocols/cryptography/encrypter'
+import { Decrypter, Encrypter } from '@data/protocols'
 
 export class JwtAdapter implements Encrypter, Decrypter {
   constructor(private readonly secret: string) {}

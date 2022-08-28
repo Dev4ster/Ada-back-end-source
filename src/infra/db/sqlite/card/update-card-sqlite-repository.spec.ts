@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { RunResult } from 'sqlite3'
-import { Card } from './../../../../domain/models/card'
+import { Card } from '@domain/models/card'
 import { UpdateCardSqliteRepository } from './update-card-sqlite-repository'
 
 const makeSut = () => {

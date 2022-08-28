@@ -1,5 +1,5 @@
-import { GetCardsRepository } from '../../../../data/protocols/db/card/get-cards-repository'
-import { Card } from '../../../../domain/models/card'
+import { GetCardsRepository } from '@data/protocols/db/card/get-cards-repository'
+import { Card } from '@domain/models/card'
 import { db } from '../helpers/sqlite-helper'
 
 export class GetCardsSqliteRepository implements GetCardsRepository {

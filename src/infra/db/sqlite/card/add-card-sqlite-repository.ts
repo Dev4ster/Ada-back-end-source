@@ -1,12 +1,12 @@
 import {
-  CreateCardRespository,
+  CreateCardRepository,
   CardCreateParams
 } from '@data/protocols/db/card/create-card-repository'
-import { Card } from '../../../../domain/models/card'
+import { Card } from '@domain/models/card'
 import { db } from '../helpers/sqlite-helper'
 import { v4 } from 'uuid'
 
-export class AddCardSqliteRepository implements CreateCardRespository {
+export class AddCardSqliteRepository implements CreateCardRepository {
   add(card: CardCreateParams) {
     const id = v4()
     const cardCreated = { ...card, id }

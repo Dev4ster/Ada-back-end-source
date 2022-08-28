@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { Authentication } from '../../../domain/usecases/authentication'
-import { UnauthorizedError } from '../../../presentation/errors'
-import { Encrypter } from '../../protocols/cryptography/encrypter'
+import { Authentication } from '@domain/usecases/authentication'
+import { UnauthorizedError } from '@presentation/errors'
+import { Encrypter } from '@data/protocols'
 import { EnvAuthentication } from './env-authentication'
 
 interface SutTypes {
@@ -67,5 +67,12 @@ describe('EnvAuthentication usecase', () => {
 
     const tokenHandler = await sut.auth(makeFakeCorrectAuth())
     expect(tokenHandler).toBe('any_token')
+  })
+
+  it('should credentials are correctly return token value', async () => {
+    const { sut, encrypterStub } = makeSut()
+    const encrypt = jest.spyOn(encrypterStub, 'encrypt')
+    await sut.auth(makeFakeCorrectAuth())
+    expect(encrypt).toBeCalledWith('any_login')
   })
 })
