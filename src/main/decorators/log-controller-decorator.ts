@@ -18,7 +18,9 @@ export class LogControllerDecorator implements Controller {
       const cardInfo = httpRequest.body
       const cardId = httpRequest.params.id
       console.log(
-        `${date} - Card ${cardId} - ${cardInfo.titulo} - ${this.action}`
+        `${date} - Card ${cardId} - ${cardInfo.titulo || 'Sem Titulo'} - ${
+          this.action
+        }`
       )
     }
     return httpResponse

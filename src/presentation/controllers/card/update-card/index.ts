@@ -32,7 +32,6 @@ export class UpdateCardController implements Controller {
         return notFound(new InvalidParamError('cardId does not exists'))
       return ok(card)
     } catch (error) {
-      console.log('err', error)
       return serverError(new Error())
     }
   }
