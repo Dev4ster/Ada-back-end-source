@@ -1,7 +1,6 @@
-import { ok } from './../../helpers/http/http-helper'
 import { Authentication } from './login-protocols'
-import { MissingParamError, UnauthorizedError } from '../../errors'
-import { badRequest, serverError, unauthorized } from '../../helpers'
+import { MissingParamError, UnauthorizedError } from 'presentation/errors'
+import { badRequest, ok, serverError, unauthorized } from 'presentation/helpers'
 import { LoginController } from './login'
 
 interface SutType {

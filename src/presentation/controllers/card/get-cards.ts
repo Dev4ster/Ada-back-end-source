@@ -1,6 +1,5 @@
-import { GetCards } from '../../../domain/usecases/get-cards'
-import { ok, serverError } from '../../helpers'
-import { Controller, HttpResponse } from '../../protocols'
+import { GetCards, HttpResponse, Controller } from './get-cards-protocols'
+import { ok, serverError } from 'presentation/helpers'
 
 export class GetCardsController implements Controller {
   constructor(private readonly getCards: GetCards) {}

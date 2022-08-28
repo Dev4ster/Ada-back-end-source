@@ -20,6 +20,19 @@
         "@typescript-eslint",
         "prettier"
     ],
+    "settings": {
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+          "typescript": {
+            "project": ["tsconfig.json", "package/tsconfig.json"]
+          },
+          "node": {
+            "project": ["tsconfig.json", "package/tsconfig.json"]
+          }
+        }
+      },
     "rules": {
         "prettier/prettier": "error"
     }

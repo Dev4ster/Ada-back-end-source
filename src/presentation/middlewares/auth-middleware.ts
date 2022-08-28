@@ -1,8 +1,15 @@
-import { Decrypter } from '../../data/protocols/cryptography/dencrypter'
-import { AccessDeniedError } from '../errors/access-denied-error'
-import { forbidden, ok, serverError } from '../helpers/http/http-helper'
-import { HttpRequest, HttpResponse } from '../protocols'
-import { Middleware } from '../protocols/middleware'
+import { Decrypter } from 'data/protocols/cryptography/dencrypter'
+import { AccessDeniedError } from 'presentation/errors/access-denied-error'
+import {
+  forbidden,
+  ok,
+  serverError
+} from 'presentation/helpers/http/http-helper'
+import {
+  Middleware,
+  HttpResponse,
+  HttpRequest
+} from './auth-middleware-protocols'
 
 export class AuthMiddleware implements Middleware {
   constructor(private readonly decryptToken: Decrypter) {}

@@ -1,8 +1,7 @@
 import { GetCardsController } from './get-cards'
-import { GetCards } from './../../../domain/usecases/get-cards'
-import { Controller } from '../../protocols'
-import { Card } from '../../../domain/models/card'
-import { serverError } from '../../helpers'
+import { GetCards, Controller } from './get-cards-protocols'
+import { Card } from 'domain/models/card'
+import { serverError } from 'presentation/helpers'
 
 interface SutType {
   sut: Controller

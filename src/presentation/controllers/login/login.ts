@@ -1,7 +1,11 @@
-import { Authentication } from '../../../domain/usecases/authentication'
-import { MissingParamError, UnauthorizedError } from '../../errors'
-import { badRequest, ok, serverError, unauthorized } from '../../helpers'
-import { Controller, HttpRequest, HttpResponse } from '../../protocols'
+import { MissingParamError, UnauthorizedError } from 'presentation/errors'
+import { badRequest, ok, serverError, unauthorized } from 'presentation/helpers'
+import {
+  Authentication,
+  HttpRequest,
+  HttpResponse,
+  Controller
+} from './login-protocols'
 
 export class LoginController implements Controller {
   constructor(private readonly authentication: Authentication) {}
