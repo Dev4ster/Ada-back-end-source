@@ -6,6 +6,7 @@ import { makeAddCardController } from '@main/factories/controllers/cards/add-car
 import { makeGetCardsController } from '@main/factories/controllers/cards/get-cards-factory'
 import { adaptMiddlewareAuth } from '@main/factories/middlewares/auth-middleware-factory'
 import { makeUpdateController } from '@main/factories/controllers/cards/update-card-factory'
+import { makeDeleteCardController } from '@main/factories/controllers/cards/delete-card-factory'
 
 export default (router: Router): void => {
   router.get('/card', adaptMiddlewareAuth, adaptRoute(makeGetCardsController()))
@@ -14,5 +15,12 @@ export default (router: Router): void => {
     '/card/:id',
     adaptMiddlewareAuth,
     adaptRoute(makeLogControllerDecorator(makeUpdateController(), 'Alterar'))
-  )
+  ),
+    router.delete(
+      '/card/:id',
+      adaptMiddlewareAuth,
+      adaptRoute(
+        makeLogControllerDecorator(makeDeleteCardController(), 'Remover')
+      )
+    )
 }
