@@ -38,7 +38,6 @@ export class LoginController implements Controller {
 
       return new Promise((resolve) => resolve(ok({ accessToken: token })))
     } catch (error) {
-      console.log('login', error)
       return serverError(new Error())
     }
   }
