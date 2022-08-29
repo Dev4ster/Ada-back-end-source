@@ -99,10 +99,6 @@ describe('LoginController', () => {
     }
     const httpResponse = await sut.handle(httpRequest)
 
-    expect(httpResponse).toEqual(
-      ok({
-        accessToken: 'token_valid'
-      })
-    )
+    expect(httpResponse).toEqual(ok('token_valid'))
   })
 })
