@@ -14,14 +14,18 @@ export default (router: Router): void => {
     adaptMiddlewareAuth,
     adaptRoute(makeGetCardsController())
   )
-  router.post('/card', adaptMiddlewareAuth, adaptRoute(makeAddCardController()))
+  router.post(
+    '/cards',
+    adaptMiddlewareAuth,
+    adaptRoute(makeAddCardController())
+  )
   router.put(
-    '/card/:id',
+    '/cards/:id',
     adaptMiddlewareAuth,
     adaptRoute(makeLogControllerDecorator(makeUpdateController(), 'Alterar'))
   ),
     router.delete(
-      '/card/:id',
+      '/cards/:id',
       adaptMiddlewareAuth,
       adaptRoute(
         makeLogControllerDecorator(makeDeleteCardController(), 'Remover')
