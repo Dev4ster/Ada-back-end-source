@@ -9,7 +9,11 @@ import { makeUpdateController } from '@main/factories/controllers/cards/update-c
 import { makeDeleteCardController } from '@main/factories/controllers/cards/delete-card-factory'
 
 export default (router: Router): void => {
-  router.get('/card', adaptMiddlewareAuth, adaptRoute(makeGetCardsController()))
+  router.get(
+    '/cards',
+    adaptMiddlewareAuth,
+    adaptRoute(makeGetCardsController())
+  )
   router.post('/card', adaptMiddlewareAuth, adaptRoute(makeAddCardController()))
   router.put(
     '/card/:id',
