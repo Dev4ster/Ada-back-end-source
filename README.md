@@ -1,6 +1,6 @@
 # Teste prático back-end - Ada
 
-Olá este arquivo vai conter algumas instruções do projeto do lado do back-end.
+Olá este arquivo vai conter algumas instruções do projeto do lado do back-end, esse projeto é um TODOLIST simples que exige login para fazer as alterações, devem ser configurados no .env
 
 ## Rodar o projeto na raiz
 
@@ -20,10 +20,16 @@ Comando para subir o projeto, tanto front quanto back:
 docker-compose up -d
 ```
 
-## Rodar projeto apenas back-end
+## Rotas disponíveis
 
-```json
-cd BACK && docker-compose up -d
+```
+(POST)      http://0.0.0.0:5000/login/
+
+(GET)       http://0.0.0.0:5000/cards/
+(POST)      http://0.0.0.0:5000/cards/
+(PUT)       http://0.0.0.0:5000/cards/{id}
+(DELETE)    http://0.0.0.0:5000/cards/{id}
+
 ```
 
 ## Ferramentas necessárias
